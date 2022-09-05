@@ -4,6 +4,7 @@ import config from 'config';
 import cors from 'cors';
 
 import connect from './utils/connect';
+import log from './utils/logger';
 
 const app = express();
 
@@ -16,6 +17,6 @@ app.use(cors());
 const PORT = config.get<number>('port');
 
 app.listen(PORT, async () => {
-  console.log(`App is running on port ${PORT}`);
+  log.info(`App is running on port ${PORT}`);
   await connect();
 });
