@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node built/app.js",
-    "built": "rm -rf built && tsc",
+    "built": "rm -rf build && tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
   },
   "dependencies": {
