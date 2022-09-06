@@ -5,6 +5,7 @@ import validate from './middleware/validateResult';
 import { createUserSchema } from './schemas/user.schema';
 import {
   createSessionHandler,
+  deleteSessionHandler,
   getUserSessionHandler,
 } from './controllers/session.controller';
 import { createSessionSchema } from './schemas/session.schema';
@@ -24,6 +25,8 @@ function routes(app: Express) {
   );
 
   app.get('/api/sessions', requireUser, getUserSessionHandler);
+
+  app.delete('/api/sessions', requireUser, deleteSessionHandler);
 }
 
 export default routes;
