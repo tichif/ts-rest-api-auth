@@ -12,7 +12,7 @@ export interface ProductDocument extends Document {
   price: number;
   image: string;
   createdAt: Date;
-  updateAt: Date;
+  updatedAt: Date;
 }
 
 const ProductSchema = new mongoose.Schema(
@@ -31,6 +31,7 @@ const ProductSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      unique: true,
     },
     description: {
       type: String,
