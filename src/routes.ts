@@ -24,6 +24,18 @@ import {
 } from './controllers/product.controller';
 
 function routes(app: Express) {
+  // comments are use in YAML format
+  /**
+   * @openapi
+   * /health:
+   *  get:
+   *    tag:
+   *      - Health
+   *      description: Responds if the app is up and running
+   *      responses:
+   *        200:
+   *          description: App is up and running
+   */
   app.get('/health', (req: Request, res: Response) => {
     return res.sendStatus(200);
   });
