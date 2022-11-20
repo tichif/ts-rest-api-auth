@@ -29,17 +29,42 @@ function routes(app: Express) {
    * @openapi
    * /health:
    *  get:
-   *    tag:
-   *      - Health
-   *      description: Responds if the app is up and running
-   *      responses:
-   *        200:
-   *          description: App is up and running
+   *     tags:
+   *     - Health
+   *     description: Responds if the app is up and running
+   *     responses:
+   *       200:
+   *         description: App is up and running
    */
   app.get('/health', (req: Request, res: Response) => {
     return res.sendStatus(200);
   });
 
+  /**
+   * @openapi
+   * '/api/users':
+   *  post:
+   *    tags:
+   *      - User
+   *    summary: Register a user
+   *    requestBody:
+   *      required: true
+   *      content:
+   *        application/json:
+   *          schema:
+   *            $ref: '#/components/schemas/CreateUserInput'
+   *    responses:
+   *     201:
+   *       description: Success
+   *       content:
+   *         application/json:
+   *           schema:
+   *             $ref: '#/components/schemas/CreateUserResponse'
+   *     409:
+   *       description: Conflict
+   *     400:
+   *       description: Bad request
+   */
   app.post('/api/users', validate(createUserSchema), createUserHandler);
 
   app.post(
