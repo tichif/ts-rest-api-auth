@@ -7,6 +7,7 @@ import connect from './utils/connect';
 import log from './utils/logger';
 import routes from './routes';
 import deserializeUser from './middleware/deserializeUser';
+import swaggerDocs from './utils/swagger';
 
 const app = express();
 
@@ -23,4 +24,6 @@ const PORT = config.get<number>('port');
 app.listen(PORT, async () => {
   log.info(`App is running on port ${PORT}`);
   await connect();
+
+  swaggerDocs(app, PORT);
 });
