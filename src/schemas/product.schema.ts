@@ -1,5 +1,27 @@
 import { object, string, number, TypeOf } from 'zod';
 
+/**
+ * @openapi
+ * components:
+ *  schemas:
+ *    Product:
+ *      type: object
+ *      required:
+ *        - title
+ *        - description
+ *        - price
+ *        - image
+ *      properties:
+ *        title:
+ *          type: string
+ *        description:
+ *          type: string
+ *        price:
+ *          type: number
+ *        image:
+ *          type: string
+ */
+
 const body = {
   body: object({
     title: string({
