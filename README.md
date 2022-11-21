@@ -7,6 +7,7 @@ This app is a REST APi built with:
 - Zod for schema validation
 - JWT for managing token
 - Swagger to build documentation
+- Promethus to measure api performance
   
 To build this project
 ```bash
