@@ -6,7 +6,8 @@ This app is a REST APi built with:
 - Mongoose as ODM for managing database
 - Zod for schema validation
 - JWT for managing token
-
+- Swagger to build documentation
+  
 To build this project
 ```bash
 npm run build
