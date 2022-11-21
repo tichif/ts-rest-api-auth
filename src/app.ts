@@ -8,6 +8,7 @@ import log from './utils/logger';
 import routes from './routes';
 import deserializeUser from './middleware/deserializeUser';
 import swaggerDocs from './utils/swagger';
+import { startMetricServer } from './utils/metrics';
 
 const app = express();
 
@@ -26,4 +27,6 @@ app.listen(PORT, async () => {
   await connect();
 
   swaggerDocs(app, PORT);
+
+  startMetricServer();
 });
